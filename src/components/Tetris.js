@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { createStage, checkCollision } from '../gameHelpers';
 
-// Custom Hooks
 import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
@@ -11,6 +10,7 @@ import { useGameStatus } from '../hooks/useGameStatus';
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
+import TestButton from './TestButton';
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
@@ -106,18 +106,19 @@ const Tetris = () => {
       onKeyUp={keyUp}
     >
       <StyledTetris>
-        <Stage stage={stage} />
+          <Stage stage={stage} />
         <aside>
           {gameOver ? (
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
-            <div>
-              <Display text={`Score: ${score}`} />
-              <Display text={`rows: ${rows}`} />
-              <Display text={`Level: ${level}`} />
-            </div>
-          )}
+              <div>
+                <Display text={`Score: ${score}`} />
+                <Display text={`rows: ${rows}`} />
+                <Display text={`Level: ${level}`} />
+              </div>
+            )}
           <StartButton callback={startGame} />
+          <TestButton />
         </aside>
       </StyledTetris>
     </StyledTetrisWrapper>
