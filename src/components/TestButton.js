@@ -26,11 +26,11 @@ const handleTap = () => {
 const handleSwipe = (direction) => {
     
     switch (direction) {
-        case "up":
-        case "down":
+        case "top":
+        case "bottom":
         case "left":
         case "right":
-        
+        default:
             console.log(`you swiped ${direction}`)
     
     }

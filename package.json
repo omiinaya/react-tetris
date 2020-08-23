@@ -13,6 +13,7 @@
     "react-responsive": "^8.1.0",
     "react-scripts": "^3.4.3",
     "react-touch-events": "^2.1.0",
+    "react-use-gesture": "^7.0.15",
     "styled-components": "^5.1.1"
   },
   "scripts": {
