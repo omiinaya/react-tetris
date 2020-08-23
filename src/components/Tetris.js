@@ -117,8 +117,7 @@ const Tetris = () => {
     return isNotMobile ? children : null
   }
 
-  return (<div>
-    <Desktop>
+  return (
       <StyledTetrisWrapper
         role="button"
         tabIndex="0"
@@ -138,13 +137,9 @@ const Tetris = () => {
                 </div>
               )}
             <StartButton callback={startGame} />
-            <TestComponent />
-            <TestButton />
           </aside>
         </StyledTetris>
       </StyledTetrisWrapper>
-    </Desktop>
-  </div>
   );
 };
 
