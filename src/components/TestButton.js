@@ -23,8 +23,23 @@ const handleTap = () => {
     console.log("test");
 }
 
+const handleSwipe = (direction) => {
+    
+    switch (direction) {
+        case "up":
+        case "down":
+        case "left":
+        case "right":
+        
+            console.log(`you swiped ${direction}`)
+    
+    }
+}
+
 const TestButton = () => (
-    <ReactTouchEvents onTap={handleTap}>
+    <ReactTouchEvents 
+    onTap={handleTap}
+    onSwipe={handleSwipe}>
         <StyledStartButton>Test</StyledStartButton>
     </ReactTouchEvents>
 );
