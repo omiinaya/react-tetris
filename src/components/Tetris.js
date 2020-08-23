@@ -3,6 +3,7 @@ import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { createStage, checkCollision } from '../gameHelpers';
 import TestComponent from './Test';
 import { useMediaQuery } from 'react-responsive'
+import ReactTouchEvents from "react-touch-events";
 
 import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from '../hooks/usePlayer';
@@ -117,7 +118,33 @@ const Tetris = () => {
     return isNotMobile ? children : null
   }
 
+  const handleTap = () => {
+    startGame();
+  }
+
+  const handleSwipe = (direction) => {
+
+    switch (direction) {
+      case "top":
+        playerRotate(stage, 1);
+        break;
+      case "bottom":
+        dropPlayer();
+        break;
+      case "left":
+        movePlayer(-1);
+        break;
+      case "right":
+        movePlayer(1);
+        break;
+    }
+  }
+
   return (
+    <ReactTouchEvents
+      onTap={handleTap}
+      onSwipe={handleSwipe}
+    >
       <StyledTetrisWrapper
         role="button"
         tabIndex="0"
@@ -137,9 +164,11 @@ const Tetris = () => {
                 </div>
               )}
             <StartButton callback={startGame} />
+            <TestComponent />
           </aside>
         </StyledTetris>
       </StyledTetrisWrapper>
+    </ReactTouchEvents>
   );
 };
 
