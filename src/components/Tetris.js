@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { createStage, checkCollision } from '../gameHelpers';
 import TestComponent from './Test';
+import { useMediaQuery } from 'react-responsive'
 
 import { useInterval } from '../hooks/useInterval';
 import { usePlayer } from '../hooks/usePlayer';
@@ -99,31 +100,51 @@ const Tetris = () => {
     }
   };
 
-  return (
-    <StyledTetrisWrapper
-      role="button"
-      tabIndex="0"
-      onKeyDown={e => move(e)}
-      onKeyUp={keyUp}
-    >
-      <StyledTetris>
-        <Stage stage={stage} />
-        <aside>
-          {gameOver ? (
-            <Display gameOver={gameOver} text="Game Over" />
-          ) : (
-              <div>
-                <Display text={`Score: ${score}`} />
-                <Display text={`rows: ${rows}`} />
-                <Display text={`Level: ${level}`} />
-              </div>
-            )}
-          <StartButton callback={startGame} />
-          <TestComponent />
-          <TestButton />
-        </aside>
-      </StyledTetris>
-    </StyledTetrisWrapper>
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 })
+    return isDesktop ? children : null
+  }
+  const Tablet = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+    return isTablet ? children : null
+  }
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 })
+    return isMobile ? children : null
+  }
+  const Default = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 })
+    return isNotMobile ? children : null
+  }
+
+  return (<div>
+    <Desktop>
+      <StyledTetrisWrapper
+        role="button"
+        tabIndex="0"
+        onKeyDown={e => move(e)}
+        onKeyUp={keyUp}
+      >
+        <StyledTetris>
+          <Stage stage={stage} />
+          <aside>
+            {gameOver ? (
+              <Display gameOver={gameOver} text="Game Over" />
+            ) : (
+                <div>
+                  <Display text={`Score: ${score}`} />
+                  <Display text={`rows: ${rows}`} />
+                  <Display text={`Level: ${level}`} />
+                </div>
+              )}
+            <StartButton callback={startGame} />
+            <TestComponent />
+            <TestButton />
+          </aside>
+        </StyledTetris>
+      </StyledTetrisWrapper>
+    </Desktop>
+  </div>
   );
 };
 
