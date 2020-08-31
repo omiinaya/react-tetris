@@ -50,7 +50,7 @@ const Tetris = () => {
     setLevel(0);
     setRows(0);
     setGameOver(false);
-    document.getElementById("test").focus();
+    //document.getElementById("test").focus();
   };
 
   const drop = () => {
@@ -103,7 +103,7 @@ const Tetris = () => {
   };
 
   const handleTap = () => {
-    //startGame();
+    startGame();
   }
 
   const handleSwipe = (direction) => {
