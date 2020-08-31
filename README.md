@@ -27,5 +27,3 @@ Swipe down to speed your descent.
 -WebView IPA
 
 -Landscape Support
-
--Tablet Support
