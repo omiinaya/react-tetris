@@ -8,4 +8,8 @@ export const StyledStage = styled.div`
   width: 30vw;
   margin: 0 auto;
   background: #111;
+
+  @media (max-device-width: 1224px) {
+    width: 100vw;
+  }
 `;
