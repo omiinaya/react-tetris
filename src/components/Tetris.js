@@ -50,7 +50,6 @@ const Tetris = () => {
     setLevel(0);
     setRows(0);
     setGameOver(false);
-    alert("testing.");
     document.getElementById("test").focus();
   };
 
@@ -98,7 +97,6 @@ const Tetris = () => {
         dropPlayer();
       } else if (keyCode === 38) {
         playerRotate(stage, 1);
-        //console.log('focused: ', document.activeElement);
       }
     }
   };
@@ -111,8 +109,7 @@ const Tetris = () => {
 
     switch (direction) {
       case "top":
-        //playerRotate(stage, 1);
-        startGame();
+        playerRotate(stage, 1);
         break;
       case "bottom":
         dropPlayer();
