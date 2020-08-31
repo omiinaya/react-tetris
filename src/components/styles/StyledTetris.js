@@ -6,7 +6,7 @@ export const StyledTetrisWrapper = styled.div`
   height: 83vh;
 
   @media (max-device-width: 1224px) {
-    padding-top: 4vh;
+    padding-top: 2vh;
     height: 73vh;
   }
 `;
