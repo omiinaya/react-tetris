@@ -10,6 +10,7 @@ export const StyledStage = styled.div`
   background: #111;
 
   @media (max-device-width: 1224px) {
+    height: 70vh;
     width: 100vw;
   }
 `;

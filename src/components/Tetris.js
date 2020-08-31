@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { createStage, checkCollision } from '../gameHelpers';
-import TestComponent from './Test';
-import { useMediaQuery } from 'react-responsive'
 import ReactTouchEvents from "react-touch-events";
 
 import { useInterval } from '../hooks/useInterval';
@@ -141,24 +139,13 @@ const Tetris = () => {
         >
           <StyledTetris>
             <Stage stage={stage} />
-            <aside>
-              {gameOver ? (
-                <Display gameOver={gameOver} text="Game Over" />
-              ) : (
-                  <div>
-                    <Display text={`Score: ${score}`} />
-                    <Display text={`rows: ${rows}`} />
-                    <Display text={`Level: ${level}`} />
-                  </div>
-                )}
-              <StartButton callback={startGame} />
-            </aside>
           </StyledTetris>
         </StyledTetrisWrapper>
         <center>
-          <div className="ui-bar">
-            
-              <StartButton callback={startGame} />
+        <StartButton callback={startGame} />
+        </center>
+        <center>
+          <div>
               {gameOver ? (
                 <Display gameOver={gameOver} text="Game Over" />
               ) : (

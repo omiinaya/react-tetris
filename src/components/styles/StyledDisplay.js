@@ -5,7 +5,7 @@ export const StyledDisplay = styled.div`
   display: inline;
   align-items: center;
   margin: 0 0 0 0;
-  padding: 20px;
+  padding: 10px;
   border: 4px solid #333;
   min-height: 30px;
   width: 20%;
@@ -14,4 +14,8 @@ export const StyledDisplay = styled.div`
   background: #000;
   font-family: Pixel, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
+  
+  @media (max-device-width: 1224px) {
+    margin: 1%;
+  }
 `;
