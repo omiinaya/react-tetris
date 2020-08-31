@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledTetrisWrapper = styled.div`
+  padding-top: 2vh;
   width: 100vw;
-  height: 90vh;
+  height: 83vh;
 
   @media (max-device-width: 1224px) {
-    height: 75vh;
+    padding-top: 4vh;
+    height: 73vh;
   }
 `;
 
