@@ -13,7 +13,6 @@ import { useGameStatus } from '../hooks/useGameStatus';
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
-import TestButton from './TestButton';
 
 document.body.style.overflow = "hidden"
 
@@ -127,14 +126,6 @@ const Tetris = () => {
     }
   }
 
-  const isDesktop = useMediaQuery({
-    query: '(min-device-width: 1224px)'
-  })
-
-  const isMobile = useMediaQuery({
-    query: '(max-device-width: 1224px)'
-  })
-
   return (
     <ReactTouchEvents
       onTap={handleTap}
@@ -161,7 +152,6 @@ const Tetris = () => {
                   </div>
                 )}
               <StartButton callback={startGame} />
-              <TestComponent />
             </aside>
           </StyledTetris>
         </StyledTetrisWrapper>
