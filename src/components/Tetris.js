@@ -15,6 +15,8 @@ import Display from './Display';
 import StartButton from './StartButton';
 import TestButton from './TestButton';
 
+//document.body.style.overflow = "hidden"
+
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
@@ -51,6 +53,7 @@ const Tetris = () => {
     setLevel(0);
     setRows(0);
     setGameOver(false);
+    document.getElementById("test").focus();
   };
 
   const drop = () => {
@@ -97,29 +100,13 @@ const Tetris = () => {
         dropPlayer();
       } else if (keyCode === 38) {
         playerRotate(stage, 1);
+        console.log('focused: ', document.activeElement);
       }
     }
   };
 
-  const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 })
-    return isDesktop ? children : null
-  }
-  const Tablet = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
-    return isTablet ? children : null
-  }
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 })
-    return isMobile ? children : null
-  }
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 })
-    return isNotMobile ? children : null
-  }
-
   const handleTap = () => {
-    startGame();
+    //startGame();
   }
 
   const handleSwipe = (direction) => {
@@ -140,34 +127,61 @@ const Tetris = () => {
     }
   }
 
+  const isDesktop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 1224px)'
+  })
+
   return (
     <ReactTouchEvents
       onTap={handleTap}
       onSwipe={handleSwipe}
     >
-      <StyledTetrisWrapper
-        role="button"
-        tabIndex="0"
-        onKeyDown={e => move(e)}
-        onKeyUp={keyUp}
-      >
-        <StyledTetris>
-          <Stage stage={stage} />
-          <aside>
-            {gameOver ? (
-              <Display gameOver={gameOver} text="Game Over" />
-            ) : (
-                <div>
-                  <Display text={`Score: ${score}`} />
-                  <Display text={`rows: ${rows}`} />
-                  <Display text={`Level: ${level}`} />
-                </div>
-              )}
-            <StartButton callback={startGame} />
-            <TestComponent />
-          </aside>
-        </StyledTetris>
-      </StyledTetrisWrapper>
+      <div>
+        <StyledTetrisWrapper
+          id="test"
+          role="button"
+          tabIndex="0"
+          onKeyDown={e => move(e)}
+          onKeyUp={keyUp}
+        >
+          <StyledTetris>
+            <Stage stage={stage} />
+            <aside>
+              {gameOver ? (
+                <Display gameOver={gameOver} text="Game Over" />
+              ) : (
+                  <div>
+                    <Display text={`Score: ${score}`} />
+                    <Display text={`rows: ${rows}`} />
+                    <Display text={`Level: ${level}`} />
+                  </div>
+                )}
+              <StartButton callback={startGame} />
+              <TestComponent />
+            </aside>
+          </StyledTetris>
+        </StyledTetrisWrapper>
+        <center>
+          <div className="ui-bar">
+            
+              <StartButton callback={startGame} />
+              {gameOver ? (
+                <Display gameOver={gameOver} text="Game Over" />
+              ) : (
+                  <div className="ui-bar">
+                    <Display text={`Score: ${score}`} />
+                    <Display text={`rows: ${rows}`} />
+                    <Display text={`Level: ${level}`} />
+                  </div>
+                )}
+            
+          </div>
+        </center>
+      </div>
     </ReactTouchEvents>
   );
 };

@@ -1,5 +1,16 @@
 body {
   margin: 0;
+  background-color: black;
+}
+
+*:focus {
+  outline: none;
+}
+
+.ui-bar {
+  display: inline;
+  text-align: center;
+  margin: 0 auto;
 }
 
 @font-face {
