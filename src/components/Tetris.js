@@ -97,7 +97,7 @@ const Tetris = () => {
         dropPlayer();
       } else if (keyCode === 38) {
         playerRotate(stage, 1);
-        console.log('focused: ', document.activeElement);
+        //console.log('focused: ', document.activeElement);
       }
     }
   };
