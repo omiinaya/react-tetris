@@ -25,3 +25,7 @@ Swipe down to speed your descent.
 -Soundtrack
 
 -WebView IPA
+
+-Landscape Support
+
+-Tablet Support
