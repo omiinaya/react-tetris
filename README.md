@@ -2,7 +2,7 @@
 
 # Tetris game using ReactJS.
 
-***Author: Omar Minaya
+***Author: Omar Minaya***
 
 ## How To Play
 
