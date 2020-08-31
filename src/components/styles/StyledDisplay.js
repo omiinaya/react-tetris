@@ -6,7 +6,7 @@ export const StyledDisplay = styled.div`
   align-items: center;
   margin: 0 0 0 0;
   padding: 10px;
-  border: 4px solid #333;
+  
   min-height: 30px;
   width: 20%;
   border-radius: 20px;
