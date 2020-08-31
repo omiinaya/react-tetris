@@ -12,7 +12,7 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 
-document.body.style.overflow = "hidden"
+//document.body.style.overflow = "hidden"
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
