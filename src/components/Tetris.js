@@ -50,7 +50,8 @@ const Tetris = () => {
     setLevel(0);
     setRows(0);
     setGameOver(false);
-    //document.getElementById("test").focus();
+    alert("testing.");
+    document.getElementById("test").focus();
   };
 
   const drop = () => {
@@ -103,14 +104,15 @@ const Tetris = () => {
   };
 
   const handleTap = () => {
-    startGame();
+    //startGame();
   }
 
   const handleSwipe = (direction) => {
 
     switch (direction) {
       case "top":
-        playerRotate(stage, 1);
+        //playerRotate(stage, 1);
+        startGame();
         break;
       case "bottom":
         dropPlayer();
