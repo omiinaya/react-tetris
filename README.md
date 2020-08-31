@@ -21,5 +21,7 @@ Swipe down to speed your descent.
 ## Coming Soon
 
 -Leaderboards
+
 -Soundtrack
+
 -WebView IPA
