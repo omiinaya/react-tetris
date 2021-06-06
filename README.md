@@ -1,6 +1,6 @@
 # React Tetris | https://omiinaya.github.io/react-tetris
 
-# Tetris built with React.
+# Tetris game built with React.
 
 ***Author: Omar Minaya***
 
