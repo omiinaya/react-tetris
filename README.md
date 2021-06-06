@@ -2,8 +2,6 @@
 
 # Tetris game built with React.
 
-***Author: Omar Minaya***
-
 ## How To Play
 
 PC:
